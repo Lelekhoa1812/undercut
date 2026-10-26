@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/undercut-logo.png" alt="Undercut logo" width="260" />
+</p>
+
 # undercut
 
 **The junior developer who asks first, writes less, and tests what changed.**
