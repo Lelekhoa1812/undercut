@@ -98,6 +98,17 @@ def validate_skill(path: Path = SKILL) -> list[str]:
 def validate_repository_links(root: Path = ROOT) -> list[str]:
     """Check internal relative links in all Markdown docs, not just SKILL.md."""
     errors: list[str] = []
+    # Case-only path collisions make checkouts ambiguous on case-insensitive file systems.
+    seen_paths: dict[str, str] = {}
+    for entry in sorted(root.rglob("*")):
+        relative = entry.relative_to(root)
+        if not entry.is_file() or any(part in {".git", "dist", "__pycache__"} for part in relative.parts):
+            continue
+        display = relative.as_posix()
+        key = display.casefold()
+        if key in seen_paths and seen_paths[key] != display:
+            errors.append(f"Case-insensitive path collision: {seen_paths[key]} and {display}")
+        seen_paths[key] = display
     for path in sorted(root.rglob("*.md")):
         if any(part in {".git", "dist", "__pycache__"} for part in path.relative_to(root).parts):
             continue

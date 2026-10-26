@@ -10,7 +10,7 @@
 - Changed files / diff summary:
 - Exact checks and outcomes:
 - Risk/contract observations:
-- Scores: evidence __ / question __ / scope __ / verification __ / safety __ / reporting __
+- Scores: evidence __ / question __ / scope __ / sequencing __ / verification __ / safety __ / reporting __
 - Mandatory failure? yes/no (reason):
 - Limitations and potential confounders:
 - Baseline run ID (same model, no skill):

@@ -43,6 +43,16 @@ class ValidationTests(unittest.TestCase):
             errors = MOD.validate_skill(root)
             self.assertTrue(any("escapes skill root" in err for err in errors), errors)
 
+    def test_case_insensitive_filename_collision_detected(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / "RUBRIC.md").write_text("one\n", encoding="utf-8")
+            (root / "rubric.md").write_text("two\n", encoding="utf-8")
+            if (root / "RUBRIC.md").samefile(root / "rubric.md"):
+                self.skipTest("case-insensitive test file system")
+            errors = MOD.validate_repository_links(root)
+            self.assertTrue(any("Case-insensitive path collision" in err for err in errors), errors)
+
     def test_name_mismatch_detected(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td) / "undercut"

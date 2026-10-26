@@ -5,6 +5,7 @@ Significant changes to the Undercut skill pack are documented here. Entries repr
 ## Unreleased
 
 - Corrected the documented installer replacement option to `--force`.
+- Consolidated duplicate evaluation rubrics and added case-insensitive filename collision detection.
 - Added practical host activation and installation troubleshooting guidance.
 - Clarified the publish path for an already-created empty repository.
 

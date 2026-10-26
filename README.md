@@ -120,7 +120,7 @@ Everything is static files or Python standard-library scripts. **No model API, t
 - [Design principles](docs/DESIGN.md) · [Question decision guide](docs/asking-questions.md)
 - [Verification boundaries](docs/testing-strategy.md) · [Security posture](SECURITY.md)
 - [Worked examples](examples/README.md) · [Evaluation](evaluation/README.md)
-- [Maintainer guide](docs/MAINTENANCE.md) · [Roadmap / non-goals](docs/roadmap.md) · [FAQ](docs/faq.md)
+- [Maintainer guide](docs/MAINTENANCE.md) · [Roadmap / non-goals](docs/roadmap.md) · [FAQ](docs/faq.md) · [Troubleshooting](docs/TROUBLESHOOTING.md)
 
 ## Validate the pack
 
