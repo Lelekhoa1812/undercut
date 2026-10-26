@@ -1,0 +1,26 @@
+name: Bug report
+description: Undercut behavior, docs, install or validation not working as described
+title: "bug: "
+labels: []
+body:
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Describe the observed behavior. Please remove any secrets or confidential project details.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: One observable outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Host/tool version, local setup, and a small example when safe to share.
+    validations:
+      required: false

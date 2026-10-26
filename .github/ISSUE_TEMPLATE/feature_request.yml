@@ -1,0 +1,19 @@
+name: Small improvement
+description: Propose a specific simplification or behavior improvement
+title: "improve: "
+labels: []
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What concrete problem occurred?
+      description: Give a minimal before/after example without sensitive information.
+    validations:
+      required: true
+  - type: textarea
+    id: minimal
+    attributes:
+      label: Smallest behavior change that would help
+      description: Avoid broad feature lists.
+    validations:
+      required: true

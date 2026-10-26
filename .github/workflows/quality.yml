@@ -1,0 +1,33 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  skill-checks:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.9', '3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Validate skill and references
+        run: python scripts/undercut.py check
+      - name: Check evaluation catalog
+        run: python scripts/evaluate_cases.py --check
+      - name: Test package tooling
+        run: python -m unittest discover -s tests -v
+      - name: Build and inspect distributable
+        run: |
+          python scripts/undercut.py bundle --output dist/undercut-skill.zip
+          python -c 'import zipfile; z=zipfile.ZipFile("dist/undercut-skill.zip"); assert "undercut/SKILL.md" in z.namelist()'
