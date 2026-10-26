@@ -88,7 +88,7 @@ python3 scripts/undercut.py install --agent claude --scope project --project /pa
 python3 scripts/undercut.py install --agent cursor --scope user --dry-run
 
 # Replace an existing Undercut install, after inspecting local changes
-python3 scripts/undercut.py install --agent codex --scope project --project /path/to/repo --replace
+python3 scripts/undercut.py install --agent codex --scope project --project /path/to/repo --force
 ```
 
 Installing duplicate copies under multiple discovery paths can make the skill appear multiple times. Prefer **one canonical installed copy per project**; see [Compatibility](docs/COMPATIBILITY.md) and [Installation](docs/INSTALLATION.md).
